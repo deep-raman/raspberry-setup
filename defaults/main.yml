@@ -10,3 +10,7 @@ packages:
   - tcpdump
   - dos2unix
   - net-tools
+  - python-pexpect
+
+user: pi
+zsh: true
