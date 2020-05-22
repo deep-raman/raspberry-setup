@@ -1,0 +1,12 @@
+packages:
+  - vim
+  - zsh
+  - git
+  - htop
+  - wget
+  - rsync
+  - nmap
+  - telnet
+  - tcpdump
+  - dos2unix
+  - net-tools

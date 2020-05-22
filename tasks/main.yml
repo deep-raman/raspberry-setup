@@ -1,0 +1,16 @@
+---
+# task file raspberry-setup
+
+- name: OS | Perform update
+  apt:
+    upgrade: safe
+    update_cache: yes
+  register: update_result
+
+- name: RASPBERRY PI SETUP | Install basic packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ packages }}"
+
