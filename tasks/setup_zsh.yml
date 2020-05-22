@@ -1,0 +1,77 @@
+---
+
+- name: Enter pi user's password
+  pause:
+    prompt: "Please enter your pi user's password"
+    echo: no
+  register: password_prompt
+
+- set_fact:
+    userpass: "{{ password_prompt.user_input }}"
+
+#- debug:
+#    msg: "This is the user password : {{ userpass }}"
+
+- name: OH-MY-ZSH | Download oh-my-zsh
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: "/home/{{ user }}/"
+    mode: 0755
+
+- name: OH-MY-ZSH | Install oh-my-zsh
+  expect:
+    command: "/home/{{ user }}/install.sh"
+    #args:
+      #chdir: /home/pi/
+    #  executable: /bin/sh
+    responses:
+      'change your default shell to zsh': 'Y'
+  ignore_errors: true
+  register: zsh_output
+  failed_when: "'Change your default shell manually' not in zsh_output.stdout"
+
+- name: ZSH | Set zsh as default shell
+  expect:
+    command: /usr/bin/chsh -s /bin/zsh
+    responses:
+      Password: "{{ userpass }}"
+    echo: yes
+
+- name: BASH | Change .bashrc to load zsh
+  blockinfile:
+    dest: "/home/{{ user }}/.bashrc"
+    insertafter: "^# for examples"
+    marker: "#{mark} RASPBERRY SETUP : ANSIBLE MANAGED BLOCK"
+    state: present
+    backup: yes
+    block: |
+      if test -t 1; then
+        exec zsh
+      fi
+
+- name: ZSH | Change theme to agnoster
+  lineinfile:
+    dest: "/home/{{ user }}/.zshrc"
+    regexp: '^ZSH_THEME'
+    line: 'ZSH_THEME="agnoster"'
+    state: present
+    backup: yes
+
+- name: ZSH | Clone powerline fonts repo
+  git:
+    repo: 'git@github.com:deep-raman/fonts.git'
+    dest: "/home/{{ user }}/fonts"
+
+- name: ZSH | Install fonts
+  command: "/home/{{ user }}/fonts/install.sh"
+
+- name: Delete fonts repo
+  file:
+    path: "/home/{{ user }}/fonts"
+    state: absent
+    
+  
+  
+    
+
+
