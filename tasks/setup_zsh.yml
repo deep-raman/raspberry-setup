@@ -80,11 +80,11 @@
     repo: 'https://github.com/deep-raman/zsh-syntax-highlighting'
     dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-- name: ZSH | Add zsh-autosuggestions plugin
+- name: ZSH | Update plugins list in .zshrc
   lineinfile:
     dest: "/home/{{ user }}/.zshrc"
     regexp: '^plugins'
-    line: 'plugins=(git zsh-autosuggestions)'
+    line: 'plugins=(git zsh-autosuggestions zsh-syntax-highlighting)'
     state: present
     backup: yes
 
