@@ -72,7 +72,7 @@
 
 - name: ZSH | Download zsh-autosuggestions plugin
   git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    repo: 'https://github.com/deep-raman/zsh-autosuggestions'
     dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
 - name: ZSH | Add zsh-autosuggestions plugin
