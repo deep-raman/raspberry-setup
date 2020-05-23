@@ -1,8 +1,8 @@
 ---
 
-- name: Enter pi user's password
+- name: Enter "{{ user }}" user's password
   pause:
-    prompt: "Please enter your pi user's password"
+    prompt: "Please enter {{ user }} user's password"
     echo: no
   register: password_prompt
 
@@ -87,6 +87,3 @@
   when: powerlevel10k == True
   become: no
   tags: powerlevel10k
-
-
-
