@@ -69,9 +69,20 @@
   file:
     path: "/home/{{ user }}/fonts"
     state: absent
-    
-  
-  
+
+- name: ZSH | Download zsh-autosuggestions plugin
+  git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+- name: ZSH | Add zsh-autosuggestions plugin
+  lineinfile:
+    dest: "/home/{{ user }}/.zshrc"
+    regexp: '^plugins'
+    line: 'plugins=(git zsh-autosuggestions)'
+    state: present
+    backup: yes
+
     
 
 
