@@ -83,6 +83,10 @@
     state: present
     backup: yes
 
-    
+- import_tasks: setup_powerlevel10k.yml
+  when: powerlevel10k == True
+  become: no
+  tags: powerlevel10k
+
 
 
