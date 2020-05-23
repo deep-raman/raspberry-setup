@@ -75,6 +75,11 @@
     repo: 'https://github.com/deep-raman/zsh-autosuggestions'
     dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
+- name: ZSH | Download zsh-syntax-highlighting plugin
+  git:
+    repo: 'https://github.com/deep-raman/zsh-syntax-highlighting'
+    dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
 - name: ZSH | Add zsh-autosuggestions plugin
   lineinfile:
     dest: "/home/{{ user }}/.zshrc"
