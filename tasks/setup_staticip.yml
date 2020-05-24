@@ -10,5 +10,5 @@
       interface wlan0
       static ip_address={{ static_ip }}
       static routers={{ router_ip }}
-      static domain_name_servers={{ router_ip }}
+      static domain_name_servers=8.8.8.8 8.8.4.4
 
