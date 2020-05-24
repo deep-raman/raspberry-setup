@@ -16,3 +16,8 @@ packages:
 user: pi
 zsh: true
 powerlevel10k: true
+set_staticip: true
+static_ip: 192.168.1.5/24
+router_ip: 192.168.1.1
+
+
