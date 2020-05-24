@@ -1,0 +1,14 @@
+---
+
+- name: IP | Set static ip
+  blockinfile:
+    dest: /etc/dhcpcd.conf
+    marker: "#{mark} RASPBERRY SETUP : ANSIBLE MANAGED BLOCK"
+    state: present
+    backup: yes
+    block: |
+      interface wlan0
+      static ip_address={{ static_ip }}
+      static routers={{ router_ip }}
+      static domain_name_servers={{ router_ip }}
+
