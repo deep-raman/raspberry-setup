@@ -1,8 +1,8 @@
 ---
 
-- name: Enter pi user's password
+- name: Enter "{{ user }}" user's password
   pause:
-    prompt: "Please enter your pi user's password"
+    prompt: "Please enter {{ user }} user's password"
     echo: no
   register: password_prompt
 
@@ -72,17 +72,24 @@
 
 - name: ZSH | Download zsh-autosuggestions plugin
   git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    repo: 'https://github.com/deep-raman/zsh-autosuggestions'
     dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-- name: ZSH | Add zsh-autosuggestions plugin
+- name: ZSH | Download zsh-syntax-highlighting plugin
+  git:
+    repo: 'https://github.com/deep-raman/zsh-syntax-highlighting'
+    dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+- name: ZSH | Update plugins list in .zshrc
   lineinfile:
     dest: "/home/{{ user }}/.zshrc"
     regexp: '^plugins'
-    line: 'plugins=(git zsh-autosuggestions)'
+    line: 'plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting)'
     state: present
     backup: yes
+  tags: plugin-update  
 
-    
-
-
+- import_tasks: setup_powerlevel10k.yml
+  when: powerlevel10k == True
+  become: no
+  tags: powerlevel10k

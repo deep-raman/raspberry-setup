@@ -1,0 +1,25 @@
+---
+
+- name: POWERLEVEL10K | Download theme
+  git:
+    repo: 'https://github.com/deep-raman/powerlevel10k.git'
+    dest: "/home/{{ user }}/.oh-my-zsh/custom/themes/powerlevel10k"
+
+- name: ZSH | Change theme to powerlevel1
+  lineinfile:
+    dest: "/home/{{ user }}/.zshrc"
+    regexp: '^ZSH_THEME'
+    line: 'ZSH_THEME="powerlevel10k/powerlevel10k"'
+    state: present
+    backup: yes
+
+- name: NERD FONTS | Download repo
+  git:
+    repo: 'https://github.com/deep-raman/nerd-fonts.git'
+    dest: "/home/{{ user }}/nerd-fonts"
+    depth: 1
+  tags: nerd-fonts
+
+- name: NERD FONTS | Install nerd fonts
+  command: "/home/{{ user }}/nerd-fonts/install.sh 3270"
+  tags: nerd-fonts
