@@ -10,6 +10,7 @@ packages:
   - tcpdump
   - dos2unix
   - net-tools
+  - terminator
   - python-pexpect
 
 user: pi
