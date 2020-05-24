@@ -11,7 +11,10 @@ packages:
   - dos2unix
   - net-tools
   - terminator
+  - python-pip
   - python-pexpect
+  - python-virtualenv
+  - virtualenvwrapper
 
 user: pi
 zsh: true
