@@ -18,3 +18,8 @@
   when: zsh == True
   become: no
   tags: zsh
+
+- import_tasks: setup_staticip.yml
+  when: set_staticip == True
+  become: yes
+  tags: configure_ip
