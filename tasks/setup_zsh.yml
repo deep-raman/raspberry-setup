@@ -80,14 +80,37 @@
     repo: 'https://github.com/deep-raman/zsh-syntax-highlighting'
     dest: "/home/{{ user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-- name: ZSH | Update plugins list in .zshrc
+- name: ZSH | Remove default plugins list in .zshrc
   lineinfile:
     dest: "/home/{{ user }}/.zshrc"
     regexp: '^plugins'
-    line: 'plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting)'
+    state: absent
+    backup: yes
+  tags: plugin-update
+
+- name: ZSH | Update plugins list in .zshrc
+  blockinfile:
+    dest: "/home/{{ user }}/.zshrc"
+    regexp: '^plugins'
+    marker: "#{mark} RASPBERRY SETUP : ANSIBLE MANAGED BLOCK"
     state: present
     backup: yes
-  tags: plugin-update  
+    block: |
+      plugins=(
+        git
+        pip
+        sudo
+        docker
+        fabric
+        python
+        ansible
+        virtualenv
+        vim-interaction
+        virtualenvwrapper
+        zsh-autosuggestions
+        zsh-syntaxhighlighting
+      )
+  tags: plugin-update
 
 - import_tasks: setup_powerlevel10k.yml
   when: powerlevel10k == True
