@@ -84,9 +84,10 @@
   lineinfile:
     dest: "/home/{{ user }}/.zshrc"
     regexp: '^plugins'
-    line: 'plugins=(git zsh-autosuggestions zsh-syntax-highlighting)'
+    line: 'plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting)'
     state: present
     backup: yes
+  tags: plugin-update  
 
 - import_tasks: setup_powerlevel10k.yml
   when: powerlevel10k == True
