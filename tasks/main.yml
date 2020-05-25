@@ -13,6 +13,7 @@
     state: present
     update_cache: yes
   with_items: "{{ packages }}"
+  tags: install_packages
 
 - import_tasks: setup_zsh.yml
   when: zsh == True
