@@ -91,7 +91,7 @@
 - name: ZSH | Update plugins list in .zshrc
   blockinfile:
     dest: "/home/{{ user }}/.zshrc"
-    regexp: '^plugins'
+    insertafter: "^# Add wisely"
     marker: "#{mark} RASPBERRY SETUP : ANSIBLE MANAGED BLOCK"
     state: present
     backup: yes
