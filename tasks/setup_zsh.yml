@@ -108,7 +108,7 @@
         vim-interaction
         virtualenvwrapper
         zsh-autosuggestions
-        zsh-syntaxhighlighting
+        zsh-syntax-highlighting
       )
   tags: plugin-update
 
