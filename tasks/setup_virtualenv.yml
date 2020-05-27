@@ -1,0 +1,34 @@
+---
+
+- name: Check if "{{ virtualenvs_dir }}" exists
+  stat: 
+    path: "{{ virtualenvs_dir }}"
+  register: check_dir
+
+- name: Create directory  "{{ virtualenvs_dir }}"
+  file:
+    path: "{{ virtualenvs_dir }}"
+    state: directory
+  when: check_dir.stat.exists == False
+
+- name: Check default shell
+  shell: echo $SHELL
+  register: result
+
+- set_fact:
+    shell_file: "{{ '.zshrc' if (result.stdout == '/bin/zsh') else '.bashrc' }}"
+
+- debug:
+    msg: "this is the current shell file {{ shell_file }}"
+
+- name: Export virtualenvs directory
+  lineinfile: 
+    dest: "/home/{{ user }}/{{ shell_file }}"
+    line: "{{ virtualenvs_path }}"
+    state: present
+
+- name: Export virtualenvwrapper path
+  lineinfile:
+    dest: "/home/{{ user }}/{{ shell_file }}"
+    line: "{{ virtualenvwrapper_path }}"
+    state: present
