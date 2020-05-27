@@ -24,3 +24,8 @@
   when: set_staticip == True
   become: yes
   tags: configure_ip
+  
+- import_tasks: setup_virtualenv.yml
+  when: virtualenv == True
+  become: no
+  tags: virtualenv
