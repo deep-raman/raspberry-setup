@@ -22,5 +22,10 @@ powerlevel10k: true
 set_staticip: true
 static_ip: 192.168.1.5/24
 router_ip: 192.168.1.1
+# virtualenv related vars
+virtualenv: true
+virtualenvs_dir: .virtualenvs
+virtualenvs_path: export WORKON_HOME=$HOME/{{ virtualenvs_dir }}
+virtualenvwrapper_path: source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 
