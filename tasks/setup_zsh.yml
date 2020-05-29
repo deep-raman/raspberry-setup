@@ -96,20 +96,7 @@
     state: present
     backup: yes
     block: |
-      plugins=(
-        git
-        pip
-        sudo
-        docker
-        fabric
-        python
-        ansible
-        virtualenv
-        vim-interaction
-        virtualenvwrapper
-        zsh-autosuggestions
-        zsh-syntax-highlighting
-      )
+      {{ zsh_plugins }}
   tags: plugin-update
 
 - import_tasks: setup_powerlevel10k.yml
