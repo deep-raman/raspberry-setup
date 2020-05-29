@@ -28,13 +28,13 @@ The role variables are defined in `defaults/main.yml`
 Tags
 ----
 
-`install_packages`: to run only the packages installation
-`ssh`: to enable and start the ssh
-`zsh`: to install and setup zsh as default shell
-`powerlevel10k`: to install oh-my-zsh powerlevel10k theme
-`configure_ip`: to configure the static ip
-`virtualenv`: to install and configure virtualenv
-`log2ram`: to install log2ram utility
+- `install_packages`: to run only the packages installation
+- `ssh`: to enable and start the ssh
+- `zsh`: to install and setup zsh as default shell
+- `powerlevel10k`: to install oh-my-zsh powerlevel10k theme
+- `configure_ip`: to configure the static ip
+- `virtualenv`: to install and configure virtualenv
+- `log2ram`: to install log2ram utility
 
 
 Example Playbook
