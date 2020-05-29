@@ -100,6 +100,6 @@
   tags: plugin-update
 
 - import_tasks: setup_powerlevel10k.yml
-  when: powerlevel10k == True
+  when: powerlevel10k
   become: no
   tags: powerlevel10k

@@ -9,7 +9,7 @@
   file:
     path: "{{ virtualenvs_dir }}"
     state: directory
-  when: check_dir.stat.exists == False
+  when: not check_dir.stat.exists
 
 - name: Check default shell
   shell: echo $SHELL

@@ -20,10 +20,10 @@
     name: sshd
     state: started
     enabled: yes
-  when: ssh == True
+  when: ssh
 
 - import_tasks: setup_zsh.yml
-  when: zsh == True
+  when: zsh
   become: no
   tags: zsh
 
@@ -33,10 +33,10 @@
   tags: configure_ip
 
 - import_tasks: setup_virtualenv.yml
-  when: virtualenv == True
+  when: virtualenv
   become: no
   tags: virtualenv
 
 - import_tasks: setup_log2ram.yml
-  when: log2ram == True
+  when: log2ram
   tags: log2ram
