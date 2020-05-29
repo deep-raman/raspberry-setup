@@ -3,6 +3,7 @@ packages:
   - zsh
   - git
   - htop
+  - meld
   - wget
   - rsync
   - nmap
@@ -12,6 +13,7 @@ packages:
   - net-tools
   - terminator
   - python-pip
+  - ansible-lint
   - python-pexpect
   - python-virtualenv
   - virtualenvwrapper

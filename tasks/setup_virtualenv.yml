@@ -1,7 +1,7 @@
 ---
 
 - name: Check if "{{ virtualenvs_dir }}" exists
-  stat: 
+  stat:
     path: "{{ virtualenvs_dir }}"
   register: check_dir
 
@@ -22,7 +22,7 @@
     msg: "this is the current shell file {{ shell_file }}"
 
 - name: Export virtualenvs directory
-  lineinfile: 
+  lineinfile:
     dest: "/home/{{ user }}/{{ shell_file }}"
     line: "{{ virtualenvs_path }}"
     state: present

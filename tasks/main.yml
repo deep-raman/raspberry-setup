@@ -21,7 +21,7 @@
     state: started
     enabled: yes
   when: ssh == True
-    
+
 - import_tasks: setup_zsh.yml
   when: zsh == True
   become: no
@@ -31,7 +31,7 @@
   when: set_staticip == True
   become: yes
   tags: configure_ip
-  
+
 - import_tasks: setup_virtualenv.yml
   when: virtualenv == True
   become: no
