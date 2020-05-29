@@ -1,0 +1,34 @@
+---
+
+# setup log2ram 
+
+- name: LOG2RAM | Download repo
+  git:
+    repo: 'https://github.com/azlux/log2ram.git'
+    dest: "/tmp/log2ram"
+
+- name: LOG2RAM | Change install.sh permissions
+  file:
+    path: /tmp/log2ram/install.sh
+    mode: 0755
+
+- name: LOG2RAM | Run installation script
+  shell: ./install.sh
+  args:
+    chdir: /tmp/log2ram
+
+- name: LOG2RAM | Change deault size
+  lineinfile:
+    path: /etc/log2ram.conf
+    regexp: '^SIZE'
+    line: "SIZE={{ size }}"
+    state: present
+    backup: yes
+
+- name: LOG2RAM | Remove repo
+  file:
+    path: /tmp/log2ram
+    state: absent
+
+- debug:
+    msg: "Log2ram installation complete. Please reboot the system."
