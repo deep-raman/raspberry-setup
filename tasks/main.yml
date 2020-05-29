@@ -29,3 +29,7 @@
   when: virtualenv == True
   become: no
   tags: virtualenv
+
+- import_tasks: setup_log2ram.yml
+  when: log2ram == True
+  tags: log2ram
