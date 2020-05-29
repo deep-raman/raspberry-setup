@@ -64,6 +64,12 @@ Dependencies
 `none`
 
 
+Tested on
+---------
+
+- `RaspberryPi 4 - Raspbian GNU/Linux 10 (buster)`
+
+
 Requirements
 ------------
 
