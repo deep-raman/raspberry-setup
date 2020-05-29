@@ -1,7 +1,7 @@
 raspberry-setup
 ===============
 
-This ansible role setup **RaspberryPi** as workstation. It installs the basic packages, that are very useful if you use it on daily basis.
+This ansible role setup **RaspberryPi 4** as workstation. It installs the basic packages, that are very useful if you use it on daily basis.
 It makes a life a bit easy so you don't have to spend a lots of time installing or configuring the basic things.
 
 
@@ -24,6 +24,18 @@ The role variables are defined in `defaults/main.yml`
 - `log2ram`: to install log2ram utility, to write logs to ram to avoid excessive writing on the SD
 - `size`: size of the log folder that will be reserved in the ram
 - `ssh`: to enable ssh access to the pi, that by default is disabled
+
+Tags
+----
+
+`install_packages`: to run only the packages installation
+`ssh`: to enable and start the ssh
+`zsh`: to install and setup zsh as default shell
+`powerlevel10k`: to install oh-my-zsh powerlevel10k theme
+`configure_ip`: to configure the static ip
+`virtualenv`: to install and configure virtualenv
+`log2ram`: to install log2ram utility
+
 
 Example Playbook
 -----------------
@@ -54,11 +66,14 @@ Requirements
 ------------
 
 `ansible 2.7.7`
+`RaspberryPi 4` (recommended)
 
 
 Author Information
 ------------------
+```
+Raman Deep
+29th May 2020
+deep.raman85@gmail.com
 
-`Raman Deep`
-`29th May 2020`
-`deep.raman85@gmail.com`
+```
