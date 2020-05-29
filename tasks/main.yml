@@ -15,6 +15,13 @@
   with_items: "{{ packages }}"
   tags: install_packages
 
+- name: RASPBERRY PI SETUP | Enable SSH
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes
+  when: ssh == True
+    
 - import_tasks: setup_zsh.yml
   when: zsh == True
   become: no

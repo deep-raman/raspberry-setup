@@ -38,3 +38,6 @@ virtualenvwrapper_path: source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # log2ram variables
 log2ram: true
 size: 200M
+
+# enable ssh
+ssh: true
