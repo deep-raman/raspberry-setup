@@ -35,3 +35,6 @@ virtualenvs_dir: .virtualenvs
 virtualenvs_path: export WORKON_HOME=$HOME/{{ virtualenvs_dir }}
 virtualenvwrapper_path: source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
+# log2ram variables
+log2ram: true
+size: 200M
