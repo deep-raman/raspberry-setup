@@ -21,6 +21,21 @@ user: pi
 
 # to install zsh as default shell
 zsh: true
+zsh_plugins: |
+  plugins=(
+        git
+        pip
+        sudo
+        docker
+        fabric
+        python
+        ansible
+        virtualenv
+        vim-interaction
+        virtualenvwrapper
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+  )
 
 # to install theme powerlevel10k
 powerlevel10k: true
