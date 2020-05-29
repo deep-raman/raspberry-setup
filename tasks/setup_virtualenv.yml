@@ -15,7 +15,8 @@
   shell: echo $SHELL
   register: result
 
-- set_fact:
+- name: Set fact shell_file
+  set_fact:
     shell_file: "{{ '.zshrc' if (result.stdout == '/bin/zsh') else '.bashrc' }}"
 
 - debug:

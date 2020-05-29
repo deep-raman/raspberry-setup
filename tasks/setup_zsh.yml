@@ -6,7 +6,8 @@
     echo: no
   register: password_prompt
 
-- set_fact:
+- name: Set fact userpass
+  set_fact:
     userpass: "{{ password_prompt.user_input }}"
 
 #- debug:
