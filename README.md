@@ -13,6 +13,7 @@ The role variables are defined in `defaults/main.yml`
 - `packages`: list of packages that the role install by default.
 - `user`: the user that you will be using to work
 - `zsh`: to install zsh as default shell
+- `zsh_plugins`: list of oh-my-zsh plugins to load
 - `powerlevel10k`: to install powerlevel10k
 - `set_staticip`: to configure static ip
 - `static_ip`: ip address configure
@@ -31,6 +32,7 @@ Tags
 - `install_packages`: to run only the packages installation
 - `ssh`: to enable and start the ssh
 - `zsh`: to install and setup zsh as default shell
+- `plugin-update`: to update plugins list
 - `powerlevel10k`: to install oh-my-zsh powerlevel10k theme
 - `configure_ip`: to configure the static ip
 - `virtualenv`: to install and configure virtualenv
@@ -65,8 +67,8 @@ Dependencies
 Requirements
 ------------
 
-`ansible 2.7.7`
-`RaspberryPi 4` (recommended)
+- `ansible 2.7.7`
+- `RaspberryPi 4` (recommended)
 
 
 Author Information
