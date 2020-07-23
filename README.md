@@ -2,7 +2,7 @@ raspberry-setup
 ===============
 
 This ansible role setup **RaspberryPi 4** as workstation. It installs the basic packages, that are very useful if you use it on daily basis.
-It makes a life a bit easy so you don't have to spend a lots of time installing or configuring the basic things.
+It makes a life a bit easy so you don't have to spend a lot of time installing or configuring the basic things.
 
 
 Role Variables
